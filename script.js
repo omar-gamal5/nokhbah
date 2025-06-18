@@ -85,6 +85,25 @@ document.addEventListener('DOMContentLoaded', function() {
             button.setAttribute('href', newHref);
         }
     });
+    
+    // FAQ section accordion functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle the clicked FAQ item
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
 });
 
 // Add a simple fade-in animation for page load
